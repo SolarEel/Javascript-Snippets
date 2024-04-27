@@ -1,0 +1,16 @@
+function solution(number){
+// Esta funcion convierte un integrer 'number' a numeros romanos
+var  romanDict = {M:1000,CM:900, D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1 } //Esto crea un Diccionario
+  //Los diccionarios son Objetos- especificamente, colleciones Llave/Valor
+  //Esto nos permite recorrerlas como un Array!
+var ans = '';//Creamos una variable a la que añadiremos los numeros traducidos trans compararlos con el Diccionario
+while(number>0){
+    for(a in romanDict){ 
+        if(romanDict[a]<=number){//Si el numero en el Dicc. es mas pequeño que el total, el bucle 'for' comparara el numeral más grande que pueda añadir:
+          ans += a;             //Añadimos el numeral romano
+          number-=romanDict[a]; //Y reducimos 'number' un valor equivalente hasta agotarlo
+          break;}        
+    }
+}
+return ans;
+}
