@@ -1,0 +1,16 @@
+function solution(number){
+// Converts the number to a roman numeral
+var  romanDict = {M:1000,CM:900, D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1 } //This creates a Dictionary
+  //Dictionaries are Objects- specifically, collections of Key/Value pairs
+  //This lets us run through it like an array
+var ans = '';//We create a variable we'll add the Roman Numerals to as we check 'number' against the Dictionary
+while(number>0){
+    for(a in romanDict){ 
+        if(romanDict[a]<=number){//If the number in the Dict. is smaller than the remaining total:
+          ans += a;             //We add the numeral to the answer
+          number-=romanDict[a]; //And remove that amount, looping until we've completely exhausted 'number' 
+          break;}        
+    }
+}
+return ans;
+}
