@@ -18,11 +18,9 @@ class PaginationHelper {
 	//Returns nº of items on the current page. page_index is zero based.
 	//this method should return -1 for pageIndex values that are out of range
     let a=Math.floor(this.collection.length/this.itemsPerPage);//Variable of rounded down page number
-    console.log(pageIndex,a,this.itemsPerPage,this.collection.length);
     if(pageIndex<0||this.collection.length==0||pageIndex>a){return(-1)};//this works due to indexes starting on 0
     if(pageIndex<a){return(this.itemsPerPage);}
     if(pageIndex==a){
-      console.log("pageindex==a"); 
       if(this.collection.length%this.itemsPerPage==0){return(-1)};//If it all fits in the first(0) page
       return(this.collection.length%this.itemsPerPage)//The last page will have the remainder
                     }
